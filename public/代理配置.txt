@@ -1,0 +1,7 @@
+,
+  "proxy": {
+    "/": {
+       "target": "http://192.168.12.67:8080/safe-web-action/private/",
+       "changeOrigin": true
+     }
+   }
