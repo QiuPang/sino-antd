@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<form id="form1" name="form1" >
+		<input type="" name="susUserLogin" id="susUserLogin" value="aaaaaa" />
+		<input type="password" name="susPassword" id="susPassword" value="aaaaaa"/>
+		<input type="button" value="submit" id="button"/>
+	</form>
+	<body>
+		<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+      $("#button").on('click',function(){
+        var data = $("#form1").serialize();
+        console.log(data)
+        $.ajax({
+          type: 'POST',
+          // url: '/login/userLogin.jspx',
+          data: data,
+          success: function(result) {
+            console.log(result)
+            if(result.status === '1'){
+               window.location.href=result.dataMain.loginVo.loginUrl + '.html#user/role';
+            } else {
+              // alert(result.msg)
+            }
+          },
+        });
+      })
+
+		</script>
+	</body>
+</html>
